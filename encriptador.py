@@ -39,10 +39,10 @@ def desencriptarArchivo(rutaArchivo):
     archivo.close()
     print('el arachivo se desencripto correctamente')
 
-respuestaEoD = input('presione "E" para encriptar, o "Q" para desencriptar: ')
+respuestaEoD = input('presione "E" o "e" para encriptar, o cualquier caracter para desencriptar: ')
 rutaArchivo = input('ingrese ruta del archivo: ')
 
-if respuestaEoD == 'E':
+if respuestaEoD == 'E' or respuestaEoD == 'e':
     encriptarArchivo(rutaArchivo)
 else:
     desencriptarArchivo(rutaArchivo)
