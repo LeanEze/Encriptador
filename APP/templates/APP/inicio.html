@@ -12,15 +12,8 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Encriptar</button>
-    </form>
-
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form2.as_p }}
         <button type="submit">Desencriptar</button>
     </form>
-
 
 </body>
 </html>
