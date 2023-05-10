@@ -1,54 +1,48 @@
 from django.shortcuts import redirect, render
-from APP.forms import TextFileUploadForm ,TextFileUploadForm2
-
+from APP.forms import TextFileUploadForm 
+import os
 # Create your views here.
 
 
 def encriptar(request):
+    desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
     if request.method == 'POST':
         form = TextFileUploadForm(request.POST, request.FILES)
+
         if form.is_valid():
-            uploaded_file = request.FILES['file']
-            archivo = form.cleaned_data['file'].read()
-            nuevo = str(archivo)
-            kkk =nuevo[2:-1]
-            textoFinal = ''
-            for letra in kkk:
-                ascii = ord(letra)
-                ascii += 1
-                textoFinal += chr(ascii)
-            print(nuevo[2:-1])
-            with open('C:/Users/Rodrigo/Desktop/ejercicios/miprueba.txt', 'w') as destination:
-                    destination.write(textoFinal)
+            mi_valor = request.POST.get('encriptar')
+            if mi_valor == 'Encriptar':
+                print(mi_valor)
+                archivo = form.cleaned_data['file'].read()
+                nuevo = str(archivo)
+                kkk =nuevo[2:-1]
+                textoFinal = ''
+                for letra in kkk:
+                    ascii = ord(letra)
+                    ascii += 1
+                    textoFinal += chr(ascii)
+                with open(desktop + '/prueba2.txt', 'w') as destination:
+                        destination.write(textoFinal)
+            else:
+                archivo = form.cleaned_data['file'].read()
+                nuevo = str(archivo)
+                kkk =nuevo[2:-1]
+                textoFinal = ''
+                for letra in kkk:
+                    ascii = ord(letra)
+                    ascii -= 1
+                    textoFinal += chr(ascii)
+                print(nuevo[2:-1])
+                with open(desktop + '/prueba2.txt', 'w') as destination:
+                        destination.write(textoFinal)
+
                     
-            return render(request, 'APP/index.html')
+            return redirect('encriptar')
     else:
         form = TextFileUploadForm()
         return render(request, 'APP/index.html',{"form": form})
         
 
-
-def desencriptamiento(request):
-    if request.method == 'POST':
-        form2 = TextFileUploadForm2(request.POST, request.FILES)
-        if form2.is_valid():
-            uploaded_file = request.FILES['file']
-            archivo = form2.cleaned_data['file'].read()
-            nuevo = str(archivo)
-            kkk =nuevo[2:-1]
-            textoFinal = ''
-            for letra in kkk:
-                ascii = ord(letra)
-                ascii -= 1
-                textoFinal += chr(ascii)
-            print(nuevo[2:-1])
-            with open('C:/Users/Rodrigo/Desktop/ejercicios/miprueba.txt', 'w') as destination:
-                    destination.write(textoFinal)
-
-            return redirect(request, 'APP/index.html',{"form2": form2})
-    else:
-        form2 = TextFileUploadForm2()
-        return render(request, 'APP/index.html',{"form2": form2})
 
 
 #     def desencriptar(texto):

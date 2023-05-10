@@ -1,0 +1,32 @@
+
+.container{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.contenedor{
+    display: flex;
+    height: 500px;
+    padding: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.botones{
+    display: flex;
+    justify-content: center;
+}
+
+label[for="id_file"]::after {
+    content: "";
+    visibility: hidden;
+  }
+
+  label[for="id_file"]::before {
+    visibility: hidden;
+  }
+  

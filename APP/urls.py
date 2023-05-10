@@ -1,8 +1,7 @@
 from django.contrib import admin
 from django.urls import path , include
-from APP.views import encriptar ,desencriptamiento
+from APP.views import encriptar
 urlpatterns = [
     path('' , encriptar, name="encriptar"),
-    path("desencriptamiento/" ,desencriptamiento , name="desencriptamiento")
-    # path("desencriptar/" ,desencriptamiento, name="desencriptar"),
+
 ]
