@@ -3,6 +3,10 @@
   margin: 0;
   box-sizing: border-box;
 }
+body{
+  background: rgb(0,161,246);
+background: linear-gradient(90deg, rgba(0,161,246,1) 26%, rgba(0,245,204,1) 87%);
+}
 .container{
     display: flex;
     height: 100vh;
