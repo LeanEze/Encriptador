@@ -10,20 +10,22 @@
 </head>
 <body>
     <div class="container">
-    <div class="contenedor">
-    <h1>Encriptador de Archivos</h1>
-
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div class="botones">
-
-            <input type="submit" value="Encriptar" name="encriptar">
-            <input type="submit" value="Desencriptar" name="desencriptar">
+            <div class="contenedor">
+                <div class="micontenido">
+                <h1>Encriptador de Archivos</h1>
+                
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="botones">
+                        
+                        <input class="boton" type="submit" value="Encriptar" name="encriptar">
+                        <input class="boton" type="submit" value="Desencriptar" name="desencriptar">
+                    </div>
+                </div>
+            
+                </form> 
         </div>
-
-    </form>
-    </div>  
 </div>
 
 
