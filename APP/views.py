@@ -19,7 +19,7 @@ def encriptar(request):
                 kkk =nuevo[2:-1]
                 textoFinal = ''
                 for letra in kkk:
-                    ascii = ord(letra)
+                    ascii = ord(letra) 
                     ascii += 1
                     textoFinal += chr(ascii)
                 with open(desktop + '/texto encriptado.txt', 'w') as destination:
